@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AMR Intelligence Platform | Democratizing Data</title>
+    
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans selection:bg-blue-200">
+
+    <div id="landing-page">
+        <nav class="bg-white/90 backdrop-blur-md border-b border-slate-200 fixed w-full top-0 z-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center h-20">
+                    <div class="flex items-center space-x-3">
+                        <div class="bg-blue-700 p-2 rounded-lg">
+                            <i data-lucide="shield-alert" class="text-white h-6 w-6"></i>
+                        </div>
+                        <span class="text-2xl font-bold text-slate-800 tracking-tight">AMR Intel</span>
+                    </div>
+                    <div class="hidden md:flex space-x-8 font-medium text-slate-600">
+                        <a href="#" class="hover:text-blue-700 transition">Home</a>
+                        <a href="#technology" class="hover:text-blue-700 transition">Technology</a>
+                        <a href="#impact" class="hover:text-blue-700 transition">Impact</a>
+                    </div>
+                    <button onclick="handleLogin()" class="bg-blue-700 hover:bg-blue-800 text-white px-6 py-2.5 rounded-lg font-semibold transition shadow-lg shadow-blue-700/20">
+                        Live Demo
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <header class="pt-32 pb-20 px-4 text-center bg-gradient-to-b from-blue-50 to-white">
+            <div class="max-w-4xl mx-auto">
+                <div class="inline-flex items-center bg-red-100 text-red-800 px-4 py-1.5 rounded-full text-sm font-bold mb-6">
+                    <span class="w-2 h-2 bg-red-600 rounded-full mr-2"></span>
+                    Global Threat: 1.27M Deaths/Year
+                </div>
+                <h1 class="text-5xl md:text-6xl font-extrabold text-slate-900 mb-6 leading-tight">
+                    Democratizing <br> <span class="text-blue-700">Antimicrobial Resistance Data</span>
+                </h1>
+                <p class="text-xl text-slate-600 mb-10 max-w-2xl mx-auto leading-relaxed">
+                    Transforming laboratory results into actionable intelligence. We replace paper silos with real-time interoperability to save lives.
+                </p>
+                <div class="flex justify-center gap-4">
+                    <button onclick="handleLogin()" class="bg-slate-900 text-white px-8 py-4 rounded-xl font-bold hover:bg-slate-800 transition">Enter Platform</button>
+                    <button class="bg-white border border-slate-200 text-slate-700 px-8 py-4 rounded-xl font-bold hover:bg-slate-50 transition">Read Strategy</button>
+                </div>
+            </div>
+        </header>
+
+        <section class="bg-slate-900 text-white py-16">
+            <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 text-center divide-slate-800 md:divide-x">
+                <div class="p-4">
+                    <div class="text-4xl md:text-5xl font-bold text-red-500 mb-2">1.27M</div>
+                    <div class="text-slate-400 font-semibold">Deaths Directly Caused</div>
+                </div>
+                <div class="p-4">
+                    <div class="text-4xl md:text-5xl font-bold text-orange-500 mb-2">5M+</div>
+                    <div class="text-slate-400 font-semibold">Deaths Contributed</div>
+                </div>
+                <div class="p-4">
+                    <div class="text-4xl md:text-5xl font-bold text-blue-500 mb-2">Africa</div>
+                    <div class="text-slate-400 font-semibold">Disproportionate Burden</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="technology" class="py-24 bg-white">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl font-bold text-slate-900">Our Technology Stack</h2>
+                    <p class="text-slate-500 mt-2">Breaking digital silos with offline-first design.</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="module-card group">
+                        <i data-lucide="mic" class="text-blue-600 mb-4 h-8 w-8"></i>
+                        <h3 class="text-lg font-bold mb-2">Smart Data Capture</h3>
+                        <p class="text-sm text-slate-500">Voice-to-text input, barcode scanning, and AI-assisted zone measurement on tablets.</p>
+                    </div>
+                    <div class="module-card group">
+                        <i data-lucide="layout-dashboard" class="text-emerald-600 mb-4 h-8 w-8"></i>
+                        <h3 class="text-lg font-bold mb-2">Live Surveillance</h3>
+                        <p class="text-sm text-slate-500">Real-time antibiograms flagging emerging threats by region, ward, or pathogen.</p>
+                    </div>
+                    <div class="module-card group">
+                        <i data-lucide="bot" class="text-purple-600 mb-4 h-8 w-8"></i>
+                        <h3 class="text-lg font-bold mb-2">ResistanceIQ AI</h3>
+                        <p class="text-sm text-slate-500">Clinical assistant recommending evidence-based empiric therapy using local data.</p>
+                    </div>
+                    <div class="module-card group">
+                        <i data-lucide="network" class="text-cyan-600 mb-4 h-8 w-8"></i>
+                        <h3 class="text-lg font-bold mb-2">Interoperability</h3>
+                        <p class="text-sm text-slate-500">Built on HL7-FHIR standards with REST APIs to integrate with EMRs.</p>
+                    </div>
+                    <div class="module-card group">
+                        <i data-lucide="smartphone" class="text-orange-600 mb-4 h-8 w-8"></i>
+                        <h3 class="text-lg font-bold mb-2">Telehealth Portal</h3>
+                        <p class="text-sm text-slate-500">Patients access results via virtual clinic and receive SMS education.</p>
+                    </div>
+                    <div class="module-card group">
+                        <i data-lucide="bar-chart-3" class="text-indigo-600 mb-4 h-8 w-8"></i>
+                        <h3 class="text-lg font-bold mb-2">Analytics & Policy</h3>
+                        <p class="text-sm text-slate-500">Track treatment success to assist national authorities in resource allocation.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <footer class="bg-slate-50 border-t py-12 text-center text-slate-500 text-sm">
+            <p>&copy; 2026 AMR Intelligence Platform. Demo Data: State Alpha & Beta.</p>
+        </footer>
+    </div>
+
+    <div id="internal-app" class="hidden h-screen flex overflow-hidden bg-slate-50">
+        <aside class="w-64 bg-slate-900 text-white flex flex-col shadow-2xl z-20">
+            <div class="p-6 border-b border-slate-800 flex items-center space-x-3">
+                <div class="bg-blue-600 p-1.5 rounded">
+                    <i data-lucide="shield-check" class="h-5 w-5"></i>
+                </div>
+                <span class="font-bold text-lg tracking-wide">AMR Platform</span>
+            </div>
+            
+            <div class="p-4">
+                <div class="text-xs font-bold text-slate-500 uppercase mb-2 px-2">Surveillance</div>
+                <nav class="space-y-1">
+                    <button onclick="router('dashboard')" id="nav-dashboard" class="nav-item active">
+                        <i data-lucide="map" class="w-5 h-5"></i>
+                        <span>State Alpha</span>
+                    </button>
+                    <button onclick="router('beta')" id="nav-beta" class="nav-item">
+                        <i data-lucide="map-pin" class="w-5 h-5"></i>
+                        <span>State Beta</span>
+                    </button>
+                    <button onclick="router('ai')" id="nav-ai" class="nav-item">
+                        <i data-lucide="sparkles" class="w-5 h-5 text-purple-400"></i>
+                        <span>ResistanceIQ</span>
+                    </button>
+                </nav>
+            </div>
+
+            <div class="mt-auto p-4 border-t border-slate-800">
+                <button onclick="handleLogout()" class="w-full flex items-center space-x-2 text-red-400 hover:bg-red-500/10 p-2 rounded transition">
+                    <i data-lucide="log-out" class="w-4 h-4"></i>
+                    <span>Exit Demo</span>
+                </button>
+            </div>
+        </aside>
+
+        <main class="flex-1 overflow-y-auto relative">
+            <header class="bg-white border-b px-8 py-4 flex justify-between items-center sticky top-0 z-10">
+                <h2 id="page-title" class="text-xl font-bold text-slate-800">State Alpha Overview</h2>
+                <div class="flex items-center space-x-4">
+                    <span class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-xs font-bold flex items-center">
+                        <span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span> Data Live
+                    </span>
+                </div>
+            </header>
+
+            <div id="app-content" class="p-8 max-w-6xl mx-auto">
+                </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
