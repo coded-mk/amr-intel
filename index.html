@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body class="bg-slate-50 text-slate-900 font-sans selection:bg-blue-200">
 
@@ -196,6 +197,30 @@
         </div>
     </section>
     
+    <section class="py-20 bg-white border-t border-slate-200">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-10">
+                <span class="text-blue-600 font-bold tracking-wider uppercase text-sm">Real-Time Intelligence</span>
+                <h2 class="text-3xl font-bold text-slate-900 mt-2">Live Surveillance Feed</h2>
+                <p class="text-slate-500 mt-2">Explore live anonymized data from our partner states.</p>
+            </div>
+
+            <div class="bg-slate-50 rounded-2xl border border-slate-200 shadow-xl overflow-hidden">
+                <div class="bg-white border-b border-slate-200 px-6 py-4 flex flex-wrap gap-4 overflow-x-auto">
+                    <button onclick="updateDemoView('alpha')" id="btn-alpha" class="demo-tab active flex items-center gap-2 px-4 py-2 rounded-lg font-bold text-sm transition bg-blue-600 text-white shadow-md">
+                        <i data-lucide="map"></i> State Alpha
+                    </button>
+                    <button onclick="updateDemoView('beta')" id="btn-beta" class="demo-tab flex items-center gap-2 px-4 py-2 rounded-lg font-bold text-sm text-slate-600 hover:bg-slate-100 transition">
+                        <i data-lucide="map-pin"></i> State Beta
+                    </button>
+                </div>
+
+                <div id="demo-content" class="p-6 md:p-8 min-h-[500px]">
+                    </div>
+            </div>
+        </div>
+    </section>
+
     <section id="success" class="bg-slate-900 text-white py-20">
         <div class="max-w-7xl mx-auto px-4">
             <div class="text-center mb-12">

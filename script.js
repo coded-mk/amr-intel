@@ -607,3 +607,175 @@ function generateHighEndPDF() {
 
     doc.save(`AMR_Report_${state.name.replace(' ', '_')}.pdf`);
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    lucide.createIcons();
+    // Load the default view (Alpha) immediately
+    updateDemoView('alpha');
+});
+
+// === DEMO VIEW CONTROLLER ===
+function updateDemoView(view) {
+    const content = document.getElementById('demo-content');
+    
+    // Update Tabs
+    document.querySelectorAll('.demo-tab').forEach(btn => {
+        // Reset all buttons to gray
+        btn.classList.remove('active', 'bg-blue-600', 'text-white', 'shadow-md');
+        btn.classList.add('text-slate-600', 'hover:bg-slate-100');
+        
+        // Highlight clicked button
+        if(btn.id === `btn-${view}`) {
+            btn.classList.remove('text-slate-600', 'hover:bg-slate-100');
+            btn.classList.add('active', 'bg-blue-600', 'text-white', 'shadow-md');
+        }
+    });
+
+    // Inject HTML based on selection
+    if (view === 'alpha') {
+        content.innerHTML = getAlphaHTML();
+        setTimeout(() => initAlphaChart(), 50); // Small delay to let DOM render
+    } else if (view === 'beta') {
+        content.innerHTML = getBetaHTML();
+        setTimeout(() => initBetaChart(), 50);
+    } 
+    
+    // Re-initialize icons for the new content
+    setTimeout(() => lucide.createIcons(), 50);
+}
+
+// === HTML GENERATORS ===
+function getAlphaHTML() {
+    return `
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8 animate-fade-in">
+            <div class="bg-white p-6 rounded-xl shadow-sm border-l-4 border-blue-600">
+                <p class="text-slate-500 font-medium text-xs uppercase tracking-wide">Sentinel Centres</p>
+                <p class="text-xl font-bold text-slate-800 mt-1">Harmony, Unity, Sunrise</p>
+            </div>
+            <div class="bg-white p-6 rounded-xl shadow-sm border-l-4 border-indigo-600">
+                <p class="text-slate-500 font-medium text-xs uppercase tracking-wide">Tests Processed</p>
+                <p class="text-3xl font-bold text-slate-800 mt-1">1,200</p>
+            </div>
+            <div class="bg-white p-6 rounded-xl shadow-sm border-l-4 border-red-500">
+                <p class="text-slate-500 font-medium text-xs uppercase tracking-wide">Action Required</p>
+                <p class="text-lg font-bold text-red-600 mt-1">Review Empirical Therapy</p>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
+                <h3 class="font-bold text-slate-700 mb-6 flex items-center gap-2">
+                    <i data-lucide="bar-chart-2" class="w-5 h-5 text-blue-500"></i> Resistance Profile
+                </h3>
+                <canvas id="alphaChart" height="250"></canvas>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
+                <h3 class="font-bold text-slate-700 mb-4 flex items-center gap-2">
+                    <i data-lucide="clipboard-list" class="w-5 h-5 text-emerald-500"></i> Recommendations
+                </h3>
+                <ul class="space-y-4">
+                    <li class="flex items-start gap-3 p-3 bg-red-50 rounded text-sm">
+                        <i data-lucide="alert-octagon" class="text-red-500 w-5 h-5 shrink-0"></i>
+                        <div>
+                            <strong class="text-red-700">Avoid:</strong> Ampicillin and Ciprofloxacin due to >65% resistance rates detected.
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-3 p-3 bg-green-50 rounded text-sm">
+                        <i data-lucide="check-circle" class="text-emerald-500 w-5 h-5 shrink-0"></i>
+                        <div>
+                            <strong class="text-emerald-700">Preferred:</strong> For UTIs, prefer Nitrofurantoin (Low Resistance).
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    `;
+}
+
+function getBetaHTML() {
+    return `
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8 animate-fade-in">
+            <div class="bg-white p-6 rounded-xl shadow-sm border-l-4 border-purple-600">
+                <p class="text-slate-500 font-medium text-xs uppercase tracking-wide">Sentinel Centres</p>
+                <p class="text-xl font-bold text-slate-800 mt-1">Beacon, Evergreen</p>
+            </div>
+            <div class="bg-white p-6 rounded-xl shadow-sm border-l-4 border-indigo-600">
+                <p class="text-slate-500 font-medium text-xs uppercase tracking-wide">Tests Processed</p>
+                <p class="text-3xl font-bold text-slate-800 mt-1">950</p>
+            </div>
+            <div class="bg-white p-6 rounded-xl shadow-sm border-l-4 border-orange-500">
+                <p class="text-slate-500 font-medium text-xs uppercase tracking-wide">Focus Area</p>
+                <p class="text-lg font-bold text-orange-600 mt-1">Stewardship & Hygiene</p>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
+                <h3 class="font-bold text-slate-700 mb-6 flex items-center gap-2">
+                    <i data-lucide="bar-chart-2" class="w-5 h-5 text-purple-500"></i> Resistance Profile
+                </h3>
+                <canvas id="betaChart" height="250"></canvas>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
+                <h3 class="font-bold text-slate-700 mb-4 flex items-center gap-2">
+                    <i data-lucide="clipboard-list" class="w-5 h-5 text-orange-500"></i> Recommendations
+                </h3>
+                <ul class="space-y-4">
+                    <li class="flex items-start gap-3 p-3 bg-red-50 rounded text-sm">
+                        <i data-lucide="alert-triangle" class="text-red-500 w-5 h-5 shrink-0"></i>
+                        <div>
+                            <strong class="text-red-700">Critical:</strong> High resistance to Cephalosporins. Restrict use immediately.
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-3 p-3 bg-orange-50 rounded text-sm">
+                        <i data-lucide="shield" class="text-orange-500 w-5 h-5 shrink-0"></i>
+                        <div>
+                            <strong class="text-orange-700">Stewardship:</strong> Reserve Carbapenems only for confirmed severe cases.
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    `;
+}
+
+// === CHART GENERATORS ===
+function initAlphaChart() {
+    const ctx = document.getElementById('alphaChart');
+    if(ctx) {
+        new Chart(ctx.getContext('2d'), {
+            type: 'bar',
+            data: {
+                labels: ['Ampicillin', 'Cipro', 'Nitro', 'Gentamicin'],
+                datasets: [{
+                    label: 'Resistance %',
+                    data: [78, 65, 12, 25],
+                    backgroundColor: ['#ef4444', '#f97316', '#10b981', '#3b82f6'],
+                    borderRadius: 4
+                }]
+            },
+            options: { responsive: true, plugins: { legend: { display: false } } }
+        });
+    }
+}
+
+function initBetaChart() {
+    const ctx = document.getElementById('betaChart');
+    if(ctx) {
+        new Chart(ctx.getContext('2d'), {
+            type: 'bar',
+            data: {
+                labels: ['Cephalo', 'Fluoro', 'Carba', 'Amikacin'],
+                datasets: [{
+                    label: 'Resistance %',
+                    data: [82, 75, 15, 10],
+                    backgroundColor: ['#ef4444', '#f97316', '#eab308', '#10b981'],
+                    borderRadius: 4
+                }]
+            },
+            options: { responsive: true, plugins: { legend: { display: false } } }
+        });
+    }
+}
