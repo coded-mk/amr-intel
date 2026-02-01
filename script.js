@@ -778,4 +778,4 @@ function initBetaChart() {
             options: { responsive: true, plugins: { legend: { display: false } } }
         });
     }
-}
+} 

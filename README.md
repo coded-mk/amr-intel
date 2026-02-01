@@ -46,7 +46,7 @@ Since this is a static prototype, you do not need `npm`, `node`, or a build serv
 
 1.  **Clone the repository**
     ```bash
-    git clone [https://github.com/YOUR_USERNAME/amr-platform.git](https://github.com/YOUR_USERNAME/amr-platform.git)
+    git clone https://github.com/coded-mk/amr-intel.git
     ```
 
 2.  **Open the Application**

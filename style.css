@@ -1,13 +1,8 @@
-/* ========================================= */
-/* 1. GLOBAL SETTINGS & UTILITIES            */
-/* ========================================= */
-
 html {
     scroll-behavior: smooth;
     scroll-padding-top: 80px; /* Offset for fixed navbar */
 }
 
-/* Custom Scrollbar */
 ::-webkit-scrollbar {
     width: 8px;
     height: 8px;
@@ -29,8 +24,8 @@ html {
 
 .module-card {
     background: white;
-    border: 1px solid #e2e8f0; /* slate-200 */
-    border-radius: 0.75rem; /* rounded-xl */
+    border: 1px solid #e2e8f0;
+    border-radius: 0.75rem;
     padding: 2rem;
     transition: all 0.3s ease-in-out;
     display: flex;
@@ -42,18 +37,18 @@ html {
 }
 
 .module-card:hover {
-    border-color: #bfdbfe; /* blue-200 */
+    border-color: #bfdbfe;
     transform: translateY(-8px);
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
 .module-card h3 {
-    color: #1e293b; /* slate-800 */
+    color: #1e293b;
     transition: color 0.2s;
 }
 
 .module-card:hover h3 {
-    color: #2563eb; /* blue-600 */
+    color: #2563eb;
 }
 
 /* ========================================= */
@@ -73,7 +68,7 @@ html {
 
 .message.user {
     margin-left: auto;
-    background: #7c3aed; /* purple-600 */
+    background: #7c3aed;
     color: white;
     border-bottom-right-radius: 0.25rem;
 }
@@ -118,7 +113,7 @@ html {
 
 /* Tab Button Active State Logic (Handled by JS, but helper class here) */
 .demo-tab.active {
-    background-color: #2563eb; /* blue-600 */
+    background-color: #2563eb;
     color: white;
 }
 .demo-tab:not(.active):hover {
